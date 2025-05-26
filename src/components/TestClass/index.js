@@ -1,1 +1,1 @@
-export {default} from './TestClass'
+export { default } from '.';
