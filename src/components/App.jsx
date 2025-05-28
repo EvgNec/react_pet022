@@ -26,6 +26,17 @@ class App extends Component {
     });
   };
 
+  countTotalFeedback = () => {
+    return Object.values(this.state).reduce((total, value) => total + value, 0);
+  };
+
+  countPositiveFeedbackPercentage= () => {
+    const total = this.countTotalFeedback();
+    if (total === 0) return 0;
+  
+    return Math.round((this.state.good / total) * 100);
+  };
+
   render() {
     const { good, neutral, bad } = this.state;
     // -- Mасив options, який містить усі ключі (властивості) об'єкта this.state
@@ -40,7 +51,10 @@ class App extends Component {
         <Statistics 
 		good={good} 
 		neutral={neutral} 
-		bad={bad} />
+		bad={bad} 
+    countTotalFeedback={this.countTotalFeedback}  
+    countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage} 
+    />
       </>
     );
   }
