@@ -1,12 +1,11 @@
 import React from "react";
-import css from './Statistics.module.css';
 
-export default function Statistics ({}){
+export default function Statistics ({good, neutral, bad}){
     return(
         <>
         <h1>Statistics</h1>
-        <div>Good</div>
-        <div>Neutral</div>
-        <div>Bad</div>
+        <div>Good: {good}</div>
+        <div>Neutral: {neutral}</div>
+        <div>Bad: {bad}</div>
         </>)
 }
