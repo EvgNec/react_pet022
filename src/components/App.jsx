@@ -1,9 +1,15 @@
 import { Component } from 'react'
+import FeedBackOptions from './FeedBackOptions'
+import Statistics from './Statistics'
+
 
 class App extends Component {
 	state = {
-		isShowModal: false,
-	}
+		good: 0,
+		neutral: 0,
+		bad: 0,
+		options: []
+	  }
 
 	showModal = () => {
 		this.setState({ isShowModal: true })
@@ -15,8 +21,11 @@ class App extends Component {
 	render() {
 		return (
 <>
+<FeedBackOptions/>
+<Statistics/>
 </>
     )}
 }
+
 
 export default App;
