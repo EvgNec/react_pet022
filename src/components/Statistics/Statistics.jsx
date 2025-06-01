@@ -1,13 +1,27 @@
 import React from "react";
+import css from './Statistics.module.css';
+
 
 export default function Statistics ({good, neutral, bad, countTotalFeedback, countPositiveFeedbackPercentage}){
-    return(
+
+    let percent = countPositiveFeedbackPercentage();
+        let className = '';  
+        if (percent < 50) {          
+          className = css.low;
+        } else if (percent < 75) {
+          className = css.medium;
+        } else {
+          className = css.high;
+        }
+        
+        return(
         <>
-        <h1>Statistics</h1>
-        <div>Good: {good}</div>
-        <div>Neutral: {neutral}</div>
-        <div>Bad: {bad}</div>
-        <div>Total: {countTotalFeedback()}</div>
-        <div>Positive Feedback: {countPositiveFeedbackPercentage()} %</div>
+        <ul className={css.feedbackList}>
+        <li className={css.listItem}>Good: {good}</li>
+        <li className={css.listItem}>Neutral: {neutral}</li>
+        <li className={css.listItem}>Bad: {bad}</li>
+        <li className={css.listItem}>Total: {countTotalFeedback()}</li>
+        <li className={`${css.feedback} ${className}`}>Positive Feedback: {countPositiveFeedbackPercentage()} %</li>
+        </ul>
         </>)
 }

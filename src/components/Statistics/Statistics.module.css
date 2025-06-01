@@ -1,0 +1,26 @@
+.feedbackList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight:500;
+}
+
+.listItem {
+font-size:18px;
+
+&:not(:last-child) {
+	margin-bottom: 10px;
+}
+}
+
+.feedback.low {
+    color: red;
+  }
+  
+  .feedback.medium {
+    color: orange;
+  }
+  
+  .feedback.high {
+    color: green;
+  }
